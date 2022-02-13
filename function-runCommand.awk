@@ -1,16 +1,30 @@
-function runCommand (x) {
-        delete globalArray;
-        z=0;
-        dp("x=" x ".",1000,debugGlobal);
-        for (; ( (x|getline y)>0 ) ;) {
-                z++;
-                gA[z]=y;
-                dp("y=" y ".",2000,debugGlobal);
-                dp("z=" z ".",3000,debugGlobal);
+@include "function-debugPrint"
+#
+# Run shell command 
+#
+# Inputs 
+#       rc_x - command to run
+# Internal
+#       rc_z - index counter
+# Output
+#       return code - number of elements in runCmdGlobalArray 
+#       (indirect) runCmdGlobalArray - results
+# 
+function runCommand (rc_x,              rc_y,rc_z) {
+        delete runCmdGlobalArray;
+        rc_z=0;
+        dp("rc_x=" rc_x ".",8881,debugGlobal);
+        for (; ( (rc_x|getline rc_y)>0 ) ;) {
+                rc_z++;
+                # scrub CR and LF
+                gsub("\r","[CR]",rc_y);
+                gsub("\n","[LF]",rc_y);
+                runCmdGlobalArray[rc_z]=rc_y;
+                dp("rc_y=" rc_y ".",8882,debugGlobal);
+                dp("rc_z=" rc_z ".",8883,debugGlobal);
         }
-        dp("CLOSING z=" z ".",4000,debugGlobal);
-        close(x);
+        dp("CLOSING rc_z=" rc_z ".",8884,debugGlobal);
+        close(rc_x);
         # return array element count
-        return(z);
+        return(rc_z);
 }
-
