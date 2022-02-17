@@ -5,8 +5,9 @@ BEGIN {
 	cmd1 | getline unameResult;
 	# print q unameResult q;
 	close(cmd1);
-	cmd="find -depth 1 -type d .";
-	if ( unameResult=="Linux" ) cmd="find . -maxdepth 1 -mindepth 1 -type d";
+	cmd="echo BROKEN";
+	if ( unameResult=="Linux"  ) cmd="find . -maxdepth 1 -mindepth 1 -type d";
+	if ( unameResult=="Darwin" ) cmd="find . -depth 1 -type d";
 	# print q cmd q;
 	for (; (cmd|getline inp)>0 ;) {
 		cmd2="cd " inp "; git status";
