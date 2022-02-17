@@ -1,5 +1,7 @@
 # awkThings
 
+"This way lies madness"
+
 Various awk functions and code that others may find useful.
 
 Advent Of Code 2021 (using "regular" awk) - https://github.com/JohnFuzzFaceMcMahon/awkAdventOfCode2021
