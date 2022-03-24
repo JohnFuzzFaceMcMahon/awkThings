@@ -13,7 +13,7 @@ BEGIN {
 	for (i=1;i<12+1;i++) {
 		total=total+count[i];
 	}
-	print total;
+	# print total;
 	print "Probability in Space Base";
 	printf("+-------------+-------+----+-------------------+\n");
 	printf("| Dock Number | Count | %  | Graph             |\n");
