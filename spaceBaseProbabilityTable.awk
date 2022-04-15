@@ -22,4 +22,9 @@ BEGIN {
 		printf("| %-11.11s | %-5.5s | %2d | %-17.17s |\n",i,count[i],count[i]*100/total,substr(bar,1,count[i]));
 	}
 	printf("+-------------+-------+----+-------------------+\n");
+	print "";
+	for (i=1;i<13;i++) {
+		printf("Dock %2.2d Probability %2.2d%%, ",i,count[i]*100/total);
+	}
+	print "";
 }
